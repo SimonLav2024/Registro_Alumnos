@@ -29,6 +29,20 @@ function eliminarAlumno(id) {
     actualizarTabla();
 }
 
+// Función para modificar la fecha de un alumno
+function modificarFecha(id, nuevaFecha) {
+    if (nuevaFecha) {
+        const alumnos = cargarAlumnos();
+        const alumno = alumnos.find(alumno => alumno.id === id);
+        if (alumno) {
+            alumno.fecha = new Date(nuevaFecha).toLocaleString();
+            guardarAlumnos(alumnos);
+            actualizarTabla();
+        }
+    }
+}
+
+
 // Función para actualizar la tabla
 function actualizarTabla() {
     const alumnos = cargarAlumnos();
@@ -42,6 +56,10 @@ function actualizarTabla() {
             <td>${alumno.nombre}</td>
             <td>${alumno.fecha}</td>
             <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
+            <td>
+                <input type="date" class="nuevaFecha" />
+                <button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">Modificar fecha</button>
+            </td>
         `;
         tbody.appendChild(tr);
     });
@@ -81,7 +99,7 @@ function descargarPDF() {
         }
     });
 
-    doc.save("alumnos.pdf");
+    doc.save("Listado de alumnos.pdf");
 }
 
 // Event listener para el formulario
