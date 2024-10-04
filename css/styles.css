@@ -91,6 +91,10 @@ tr:hover {
     .container {
         padding: 10px;
     }
+    #alumnoForm {
+        display:flex;
+        flex-direction: column;
+    }
     h1 {
         font-size: 20px;
     }
