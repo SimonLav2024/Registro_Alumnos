@@ -32,6 +32,7 @@ function eliminarAlumno(id) {
 // Función para actualizar la tabla
 function actualizarTabla() {
     const alumnos = cargarAlumnos();
+    alumnos.sort((a, b) => a.nombre.localeCompare(b.nombre));
     const tbody = document.querySelector('#tablaAlumnos tbody');
     tbody.innerHTML = '';
 
@@ -49,6 +50,7 @@ function actualizarTabla() {
 // Función para descargar datos como archivo JSON
 function descargarDatos() {
     const alumnos = cargarAlumnos();
+    alumnos.sort((a, b) => a.nombre.localeCompare(b.nombre));
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(alumnos, null, 2));
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href", dataStr);
@@ -63,6 +65,8 @@ function descargarPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     const alumnos = cargarAlumnos();
+
+    alumnos.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
     doc.text("Lista de Alumnos", 20, 10);
     
