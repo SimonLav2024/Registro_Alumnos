@@ -52,16 +52,32 @@ function actualizarTabla() {
 
     alumnos.forEach(alumno => {
         const tr = document.createElement('tr');
+        const tr1 = document.createElement('tr');
+
+        // vista movil
+        tr1.innerHTML = `
+            <td colspan=5>${alumno.nombre}</td>
+        `;
         tr.innerHTML = `
-            <td>${alumno.nombre}</td>
             <td>${alumno.fecha}</td>
             <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">💣</button></td>
-            <td>
-                <input type="date" class="nuevaFecha" />
-                <button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">✏</button>
-            </td>
+            <td><input type="date" class="nuevaFecha" /></td>
+            <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">✏</button></td>
         `;
+        tbody.appendChild(tr1);
         tbody.appendChild(tr);
+
+        // vista pc
+    // tr.innerHTML = `
+    //     <td>${alumno.nombre}</td>
+    //     <td>${alumno.fecha}</td>
+    //     <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
+    //     <td><input type="date" class="nuevaFecha" /></td>
+    //     <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">Modificar fecha</button></td>
+    // `;
+    
+    // tbody.appendChild(tr);
+
     });
 }
 
