@@ -55,10 +55,10 @@ function actualizarTabla() {
         tr.innerHTML = `
             <td>${alumno.nombre}</td>
             <td>${alumno.fecha}</td>
-            <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
+            <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">💣</button></td>
             <td>
                 <input type="date" class="nuevaFecha" />
-                <button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">Modificar fecha</button>
+                <button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">✏</button>
             </td>
         `;
         tbody.appendChild(tr);

@@ -68,7 +68,7 @@ table {
 }
 th, td {
     text-align: left;
-    padding: 12px;
+    padding: 0.5rem;
     border-bottom: 1px solid #ddd;
 }
 th {
@@ -124,5 +124,11 @@ tr:hover {
         flex: 1;
         font-size: 14px;
         padding: 8px;
+    }
+    #tablaAlumnos {
+        overflow-x: auto;
+    }
+    .nuevaFecha {
+        width: 15px;
     }
 }
