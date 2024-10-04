@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <title>Gestión de Alumnos</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Alumnos</h1>
+        <form id="alumnoForm">
+            <input type="text" id="nombreAlumno" placeholder="Nombre del alumno" required>
+            <button type="submit">Añadir Alumno</button>
+        </form>
+        <div class="actions">
+            <button id="descargarDatos">Descargar JSON</button>
+            <button id="descargarPDF">Descargar PDF</button>
+        </div>
+        <table id="tablaAlumnos">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha y Hora</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+    <script src="js/code.js"></script>
+</body>
+</html>
