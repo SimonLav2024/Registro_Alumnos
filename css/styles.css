@@ -87,3 +87,22 @@ tr:hover {
 .delete-btn:hover {
     background-color: #f70000;
 }
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    th, td {
+        padding: 8px 4px;
+    }
+    .actions {
+        flex-direction: row;
+    }
+    .actions button {
+        flex: 1;
+        font-size: 14px;
+        padding: 8px;
+    }
+}
