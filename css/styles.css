@@ -15,8 +15,11 @@ body {
 }
 h1 {
     text-align: center;
-    color: #4a4a4a;
+    color: #000000;
     margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+    -2px -2px 2px rgba(170, 54, 54, 0.751);
+    font-size: 3rem;
 }
 form, .actions {
     display: flex;
@@ -96,7 +99,7 @@ tr:hover {
         flex-direction: column;
     }
     h1 {
-        font-size: 20px;
+        font-size: 27px;
     }
     th, td {
         padding: 8px 4px;
