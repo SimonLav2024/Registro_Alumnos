@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    background-color: #0b2853;
     margin: 0;
     padding: 20px;
     color: #333;
@@ -8,10 +8,10 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #e4e4e4;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(103, 217, 4, 0.766);
 }
 h1 {
     text-align: center;
