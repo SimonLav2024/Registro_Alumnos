@@ -62,7 +62,7 @@ function actualizarTabla() {
             <td>${alumno.fecha}</td>
             <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">💣</button></td>
             <td><input type="date" class="nuevaFecha" /></td>
-            <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">✏</button></td>
+            <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">,🐣</button></td>
         `;
         tbody.appendChild(tr1);
         tbody.appendChild(tr);
