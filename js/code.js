@@ -12,7 +12,7 @@ function guardarAlumnos(alumnos) {
 function añadirAlumno(nombre) {
     const alumnos = cargarAlumnos();
     const nuevoAlumno = {
-        id: Date.now(),
+        id: alumnos.length,
         nombre: nombre,
         fecha: new Date().toLocaleString()
     };
@@ -35,15 +35,18 @@ function eliminarAlumno(id) {
 }
 
 // Función para modificar la fecha de un alumno
-function modificarFecha(id, nuevaFecha) {
+function modificarFecha(id) {
+    let nuevaFecha = document.getElementById("nuevaFecha" + id).value;
     if (nuevaFecha) {
         const alumnos = cargarAlumnos();
         const alumno = alumnos.find(alumno => alumno.id === id);
-        if (alumno) {
-            alumno.fecha = new Date(nuevaFecha).toLocaleString();
-            guardarAlumnos(alumnos);
-            actualizarTabla();
-        }
+        
+          
+        alumno.fecha = new Date(nuevaFecha).toLocaleString();
+        guardarAlumnos(alumnos);
+        actualizarTabla();
+           
+        
     }
 }
 
@@ -69,8 +72,8 @@ function actualizarTabla() {
         <td>${alumno.nombre}</td>
         <td>${alumno.fecha}</td>
         <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
-        <td><input type="date" class="nuevaFecha" /></td>
-        <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">Modificar fecha</button></td>
+        <td><input type="date" id="nuevaFecha${alumno.id}" class="nuevaFecha"></td>
+        <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id})">Modificar fecha</button></td>
             `;
     
         tbody.appendChild(tr);
@@ -82,8 +85,8 @@ function actualizarTabla() {
             tr.innerHTML = `
                 <td>${alumno.fecha}</td>
                 <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
-                <td><input type="date" class="nuevaFecha" /></td>
-                <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">Modificar</button></td>
+                <td><input type="date" id="nuevaFecha${alumno.id}" class="nuevaFecha" /></td>
+                <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id})">Modificar</button></td>
             `;  
             tbody.appendChild(tr1);
             tbody.appendChild(tr);
