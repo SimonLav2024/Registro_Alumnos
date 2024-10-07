@@ -40,13 +40,9 @@ function modificarFecha(id) {
     if (nuevaFecha) {
         const alumnos = cargarAlumnos();
         const alumno = alumnos.find(alumno => alumno.id === id);
-        
-          
         alumno.fecha = new Date(nuevaFecha).toLocaleString();
         guardarAlumnos(alumnos);
         actualizarTabla();
-           
-        
     }
 }
 

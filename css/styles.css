@@ -1,3 +1,7 @@
+
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #0b2853;
@@ -103,6 +107,27 @@ tr:hover {
 .modificar-btn:hover {
     background-color: #2f41e1;
 }
+.flecha {
+    bottom: 80px;
+    left: 120px;
+    position: fixed;
+    animation-name: moveUp;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.flecha:hover {
+    animation-duration: .2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes moveUp {
+    from {transform: translateY(-15px);}
+    to {transform: translate(0);}
+}
+.up {
+    display: none;
+}
 @media (max-width: 600px) {
     .container {
         padding: 10px;
@@ -130,5 +155,16 @@ tr:hover {
     }
     .nuevaFecha {
         width: 15px;
+    }
+    .flecha {
+        display: none;
+    }
+    .up {
+        display: block;
+        text-align: center;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-weight: 800;
     }
 }
