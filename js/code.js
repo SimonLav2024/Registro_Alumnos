@@ -23,10 +23,15 @@ function añadirAlumno(nombre) {
 
 // Función para eliminar un alumno
 function eliminarAlumno(id) {
-    let alumnos = cargarAlumnos();
-    alumnos = alumnos.filter(alumno => alumno.id !== id);
-    guardarAlumnos(alumnos);
-    actualizarTabla();
+    if (confirm("¿Estás seguro de que deseas eliminar este alumno?")) {
+        let alumnos = cargarAlumnos();
+        alumnos = alumnos.filter(alumno => alumno.id !== id);
+        guardarAlumnos(alumnos);
+        actualizarTabla();
+        alert("Alumno eliminado con éxito.");
+    } else {
+        alert("Operación cancelada.");
+    }
 }
 
 // Función para modificar la fecha de un alumno
@@ -54,30 +59,35 @@ function actualizarTabla() {
         const tr = document.createElement('tr');
         const tr1 = document.createElement('tr');
 
-        // vista movil
-        tr1.innerHTML = `
-            <td colspan=5>${alumno.nombre}</td>
-        `;
-        tr.innerHTML = `
-            <td>${alumno.fecha}</td>
-            <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">💣</button></td>
-            <td><input type="date" class="nuevaFecha" /></td>
-            <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">,🐣</button></td>
-        `;
-        tbody.appendChild(tr1);
+        let anchoVentana = window.innerWidth;
+        window.onresize = function(){
+            anchoVentana = window.innerWidth;
+           };
+        
+        if(anchoVentana > 650) {
+            tr.innerHTML = `
+        <td>${alumno.nombre}</td>
+        <td>${alumno.fecha}</td>
+        <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
+        <td><input type="date" class="nuevaFecha" /></td>
+        <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">Modificar fecha</button></td>
+            `;
+    
         tbody.appendChild(tr);
 
-        // vista pc
-    // tr.innerHTML = `
-    //     <td>${alumno.nombre}</td>
-    //     <td>${alumno.fecha}</td>
-    //     <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
-    //     <td><input type="date" class="nuevaFecha" /></td>
-    //     <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">Modificar fecha</button></td>
-    // `;
-    
-    // tbody.appendChild(tr);
-
+        }else{
+            tr1.innerHTML = `
+            <td colspan=5>${alumno.nombre}</td>
+            `;
+            tr.innerHTML = `
+                <td>${alumno.fecha}</td>
+                <td><button class="delete-btn" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
+                <td><input type="date" class="nuevaFecha" /></td>
+                <td><button class="modificar-btn" onclick="modificarFecha(${alumno.id}, document.querySelector('.nuevaFecha').value)">Modificar</button></td>
+            `;  
+            tbody.appendChild(tr1);
+            tbody.appendChild(tr);
+        }
     });
 }
 
